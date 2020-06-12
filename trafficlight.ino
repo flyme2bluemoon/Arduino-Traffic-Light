@@ -24,6 +24,21 @@ void setup() {
     return;
 }
 
+void button (int side) {
+    for (int i = 0; i < 7000; i++) {
+        if (side = 1) {
+            if (!digitalRead(BUTTON1)) {
+                return;
+            }
+        } else if (side = 2) {
+            if (!digitalRead(BUTTON2)) {
+                return;
+            }
+        }
+        delay(1);
+    }
+}
+
 void loop () {
     // Start up sequence
     delay(1000);
@@ -37,7 +52,7 @@ void loop () {
 
     delay(1000);
 
-    // The actual thing
+    // Round 1
 
     digitalWrite(RED1, HIGH);
     digitalWrite(RED2, HIGH);
@@ -50,31 +65,65 @@ void loop () {
 
     digitalWrite(RED1, LOW);
     digitalWrite(GREEN1, HIGH);
+    digitalWrite(RED2, HIGH);
+    digitalWrite(YELLOW1, LOW);
+    digitalWrite(YELLOW2, LOW);
+    digitalWrite(GREEN2, LOW);
 
-    delay(7000);
+    button(1);
 
     digitalWrite(GREEN1, LOW);
     digitalWrite(YELLOW1, HIGH);
+    digitalWrite(RED1, LOW);
+    digitalWrite(RED2, HIGH);
+    digitalWrite(YELLOW2, LOW);
+    digitalWrite(GREEN2, LOW);
 
-    delay(3000);
+    delay(2000);
+
+    // Round 2
 
     digitalWrite(YELLOW1, LOW);
     digitalWrite(RED1, HIGH);
+    digitalWrite(RED2, HIGH);
+    digitalWrite(YELLOW2, LOW);
+    digitalWrite(GREEN1, LOW);
+    digitalWrite(GREEN2, LOW);
 
     delay(2000);
 
     digitalWrite(RED2, LOW);
     digitalWrite(GREEN2, HIGH);
+    digitalWrite(RED1, HIGH);
+    digitalWrite(YELLOW1, LOW);
+    digitalWrite(YELLOW2, LOW);
+    digitalWrite(GREEN1, LOW);
 
-    delay(7000);
+    button(2);
 
     digitalWrite(GREEN2, LOW);
     digitalWrite(YELLOW2, HIGH);
+    digitalWrite(RED1, HIGH);
+    digitalWrite(RED2, LOW);
+    digitalWrite(YELLOW1, LOW);
+    digitalWrite(GREEN1, LOW);
 
-    delay(3000);
+    delay(2000);
 
     digitalWrite(YELLOW2, LOW);
     digitalWrite(RED2, HIGH);
+    digitalWrite(RED1, HIGH);
+    digitalWrite(YELLOW1, LOW);
+    digitalWrite(GREEN1, LOW);
+    digitalWrite(GREEN2, LOW);
 
     return;
 }
+
+
+    // digitalWrite(RED1, LOW);
+    // digitalWrite(RED2, LOW);
+    // digitalWrite(YELLOW1, LOW);
+    // digitalWrite(YELLOW2, LOW);
+    // digitalWrite(GREEN1, LOW);
+    // digitalWrite(GREEN2, LOW);
